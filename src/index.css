@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #F8F9FA;
+    color: #1A1A1A;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Hide default cursor globally — custom cursor replaces it */
+    cursor: none;
+  }
+
+  body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  #root {
+    cursor: none;
+  }
+
+  ::selection {
+    background-color: #F2D4D4;
+    color: #1A1A1A;
+  }
+
+  /* Force cursor: none on all interactive elements */
+  a, button, input, [data-cursor] {
+    cursor: none;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar while keeping scroll functionality */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Editorial drop cap for Chapter 3 */
+  .drop-cap::first-letter {
+    float: left;
+    font-family: 'Playfair Display', 'Noto Serif', Georgia, serif;
+    font-size: 5.5rem;
+    line-height: 0.8;
+    padding-right: 0.6rem;
+    padding-top: 0.15rem;
+    color: #1A1A1A;
+    font-weight: 400;
+  }
+
+  /* Justified body text for the editorial column */
+  .text-justify-editorial {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+}
