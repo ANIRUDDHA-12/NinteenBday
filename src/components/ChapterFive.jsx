@@ -50,16 +50,16 @@ export default function ChapterFive() {
 
       {/* ——— Split Layout Reveal ——— */}
       <motion.div 
-        className="relative z-20 flex-1 grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-center"
+        className="relative z-20 flex-1 flex flex-col md:flex-row gap-12 md:gap-4 items-center"
         initial={{ opacity: 0, y: 30 }}
         animate={auditComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="order-2 md:order-1 pt-12 md:pt-0">
+        <div className="order-2 md:order-1 pt-12 md:pt-0 w-full md:w-1/2">
           <EditorialLetter />
         </div>
         
-        <div className="order-1 md:order-2 flex justify-center h-full">
+        <div className="order-1 md:order-2 flex justify-center h-full w-full md:w-1/2">
           {auditComplete && <Receipt />}
         </div>
       </motion.div>

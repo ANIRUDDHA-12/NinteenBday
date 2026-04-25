@@ -59,11 +59,11 @@ export default function Receipt() {
 
       {/* ——— Receipt card — "prints" into view ——— */}
       <motion.div
-        className="max-w-[420px] mx-auto"
+        className="w-full max-w-sm mx-auto"
         variants={printVariant}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-60px' }}
+        viewport={{ once: true, amount: 0.1, margin: "50px" }}
       >
         <div
           className="bg-white rounded-sm shadow-lg border border-surface-highest/50 px-8 py-10 relative overflow-hidden"
