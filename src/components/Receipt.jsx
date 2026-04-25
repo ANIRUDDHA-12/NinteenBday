@@ -22,17 +22,17 @@ const ITEMS = [
   { name: 'Friendship Portfolio',       value: 'BLUE CHIP' },
 ]
 
-/* Reveal animation — clips from top to bottom like a receipt printing */
+/* Reveal animation — simple fade and slide to prevent clipping bugs */
 const printVariant = {
   hidden: {
-    clipPath: 'inset(0 0 100% 0)',
+    y: 40,
     opacity: 0,
   },
   visible: {
-    clipPath: 'inset(0 0 0% 0)',
+    y: 0,
     opacity: 1,
     transition: {
-      duration: 1.4,
+      duration: 1.0,
       ease: [0.22, 1, 0.36, 1],
     },
   },
@@ -40,13 +40,13 @@ const printVariant = {
 
 export default function Receipt() {
   return (
-    <div className="relative w-full overflow-hidden flex flex-col justify-center h-full">
+    <div className="relative w-full flex flex-col justify-center">
       {/* ——— Section header ——— */}
       <motion.div
         className="text-center mb-12"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
+        viewport={{ once: true, margin: '200px' }}
         transition={{ duration: 0.8 }}
       >
         <p className="font-body text-ui-label uppercase tracking-widest text-charcoal/40 mb-3">
@@ -63,7 +63,7 @@ export default function Receipt() {
         variants={printVariant}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.1, margin: "50px" }}
+        viewport={{ once: true, margin: '200px' }}
       >
         <div
           className="bg-white rounded-sm shadow-lg border border-surface-highest/50 px-8 py-10 relative overflow-hidden"
